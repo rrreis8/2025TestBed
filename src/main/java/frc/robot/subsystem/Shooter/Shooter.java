@@ -21,11 +21,11 @@ public class Shooter extends SubsystemBase {
     // This method will be called once per scheduler run
     system.updateInputs();
   }
-  public void setAngle(double angle) {
-    system.getIO().setAngle(angle);
+  public void setAngle(double angleSpeed) {
+    system.getIO().setTiltAngularVelocity(angleSpeed);
   }
-  public void setSpeed(double speed) {
-    system.getIO().setSpeed(speed);
+  public void setShooterSpeed(double speed) {
+    system.getIO().setShooterSpeed(speed);
   }
 
   public void stopShooterMotors() {
@@ -35,7 +35,7 @@ public class Shooter extends SubsystemBase {
     system.getIO().stopTiltMotors();
   }
   public double getAngle() {
-    return system.getInputs().encoderPosition;
+    return system.getInputs().tiltEncoderPosition;
   }
   public boolean getForwardSwitchState() {
     return system.getInputs().fwdTripped;
@@ -43,11 +43,11 @@ public class Shooter extends SubsystemBase {
   public boolean getReverseSwitchState() {
     return system.getInputs().revTripped;
   }
-  public double getDesiredPosition() {
-    return system.getInputs().angle;
+  public double getDesiredTiltAngularVelocity() {
+    return system.getInputs().angleSpeed;
   }
   public void resetEncoder() {
-    system.getIO().resetEncoder();
+    system.getIO().resetTiltEncoder();
   }
 
 }

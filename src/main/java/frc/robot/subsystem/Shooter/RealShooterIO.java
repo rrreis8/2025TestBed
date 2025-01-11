@@ -14,7 +14,7 @@ public class RealShooterIO implements ShooterIO{
         this.shooterMotor2 = new WPI_TalonSRX(Constants.SHOOTER_MOTOR_2_ID);
         this.shooterTiltMotor = new WPI_TalonSRX(Constants.SHOOTER_TILT_MOTOR_ID);
         configureMotor();
-        resetEncoder();
+        resetTiltEncoder();
     }
     private void configureMotor() {
         this.shooterMotor1.setNeutralMode(NeutralMode.Brake);
@@ -22,21 +22,15 @@ public class RealShooterIO implements ShooterIO{
         this.shooterTiltMotor.setNeutralMode(NeutralMode.Brake);
         this.shooterTiltMotor.configForwardLimitSwitchSource(LimitSwitchSource.FeedbackConnector, LimitSwitchNormal.NormallyOpen);
         this.shooterTiltMotor.configReverseLimitSwitchSource(LimitSwitchSource.FeedbackConnector, LimitSwitchNormal.NormallyOpen);
-        shooterMotor1.setStatusFramePeriod(2, 100);
-        shooterMotor2.setStatusFramePeriod(2, 100);
-        shooterTiltMotor.setStatusFramePeriod(2, 100);
-        shooterMotor1.setStatusFramePeriod(3, 100);
-        shooterMotor2.setStatusFramePeriod(3, 100);
-        shooterTiltMotor.setStatusFramePeriod(3, 100);
     }
     @Override
-    public void setSpeed(double speed) {
+    public void setShooterSpeed(double speed) {
         this.shooterMotor1.set(speed);
         this.shooterMotor2.set(speed);
     }
     @Override
-    public void setAngle(double angle) {
-        this.shooterTiltMotor.set(angle);
+    public void setTiltAngularVelocity(double angleSpeed) {
+        this.shooterTiltMotor.set(angleSpeed);
     }
     @Override
     public void stopShooterMotors() {
@@ -48,15 +42,15 @@ public class RealShooterIO implements ShooterIO{
         this.shooterTiltMotor.set(0);
     }
     @Override
-    public void resetEncoder() {
+    public void resetTiltEncoder() {
         this.shooterTiltMotor.setSelectedSensorPosition(0);
     }
     @Override
     public void updateInputs(ShooterInputs inputs) {
         inputs.shooterSpeed = shooterMotor1.get();
-        inputs.raised = shooterTiltMotor.getSensorCollection().isFwdLimitSwitchClosed();
-        inputs.lowered = shooterTiltMotor.getSensorCollection().isRevLimitSwitchClosed();
-        inputs.angle = shooterTiltMotor.getSelectedSensorPosition();
+        inputs.fwdTripped = shooterTiltMotor.getSensorCollection().isFwdLimitSwitchClosed();
+        inputs.revTripped = shooterTiltMotor.getSensorCollection().isRevLimitSwitchClosed();
+        inputs.angleSpeed = shooterTiltMotor.get();
     }
 
 }

@@ -2,12 +2,12 @@ package frc.robot.subsystem.Shooter;
 
 public class MockShooterIO implements ShooterIO {
     @Override
-    public void setSpeed(double speed) {
+    public void setShooterSpeed(double speed) {
         
     }
 
     @Override
-    public void setAngle(double angle) {
+    public void setTiltAngularVelocity(double angleSpeed) {
         
     }
 
@@ -21,7 +21,7 @@ public class MockShooterIO implements ShooterIO {
     }
 
     @Override
-    public void resetEncoder() {
+    public void resetTiltEncoder() {
         
     }
 
