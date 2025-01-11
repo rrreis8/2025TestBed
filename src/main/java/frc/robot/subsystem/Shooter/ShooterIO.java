@@ -4,6 +4,7 @@ import frc.util.LoggableIO;
 public interface ShooterIO extends LoggableIO<ShooterInputs> {
     void setSpeed(double speed);
     void setAngle(double angle);
-    void stopMotors();
+    void stopShooterMotors();
+    void stopTiltMotors();
     void resetEncoder();
 }
