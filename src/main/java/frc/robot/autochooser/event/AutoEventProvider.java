@@ -3,7 +3,7 @@ package frc.robot.autochooser.event;
 import frc.robot.Robot;
 import frc.robot.autochooser.AutoAction;
 import frc.robot.autochooser.FieldLocation;
-import frc.robot.subsystems.LoggableSystem;
+import frc.util.LoggableSystem;
 
 import java.util.function.BiFunction;
 import java.util.function.Consumer;
