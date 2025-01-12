@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import frc.robot.autochooser.AutoAction;
 import frc.robot.autochooser.FieldLocation;
-import frc.robot.utils.smartshuffleboard.SmartShuffleboard;
+import frc.util.smartshuffleboard.SmartShuffleboard;
 
 import java.util.ArrayList;
 import java.util.Arrays;
