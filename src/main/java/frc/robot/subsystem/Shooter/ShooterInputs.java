@@ -10,19 +10,19 @@ public class ShooterInputs implements LoggableInputs{
     public boolean revTripped = false;
     @Override
     public void toLog(LogTable table) {
-        table.put("ShooterSpeed", shooterSpeed);
-        table.put("Angle", angleSpeed);
-        table.put("EncoderPosition", tiltEncoderPosition);
-        table.put("FwdTripped", fwdTripped);
-        table.put("RevTripped", revTripped);
+        table.put("shooterSpeed", shooterSpeed);
+        table.put("angleSpeed", angleSpeed);
+        table.put("encoderPosition", tiltEncoderPosition);
+        table.put("fwdTripped", fwdTripped);
+        table.put("revTripped", revTripped);
     }
     @Override
     public void fromLog(LogTable table) {
-        shooterSpeed = table.get("ShooterSpeed", shooterSpeed);
-        angleSpeed = table.get("Angle", angleSpeed);
-        tiltEncoderPosition = table.get("EncoderPosition", tiltEncoderPosition);
-        fwdTripped = table.get("FwdTripped", fwdTripped);
-        revTripped = table.get("RevTripped", revTripped);
+        shooterSpeed = table.get("shooterSpeed", shooterSpeed);
+        angleSpeed = table.get("angleSpeed", angleSpeed);
+        tiltEncoderPosition = table.get("encoderPosition", tiltEncoderPosition);
+        fwdTripped = table.get("fwdTripped", fwdTripped);
+        revTripped = table.get("revTripped", revTripped);
     }
     
 }
