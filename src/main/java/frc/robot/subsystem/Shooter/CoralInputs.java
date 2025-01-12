@@ -2,7 +2,7 @@ package frc.robot.subsystem.Shooter;
 import  org.littletonrobotics.junction.LogTable;
 import org.littletonrobotics.junction.inputs.LoggableInputs;
 
-public class ShooterInputs implements LoggableInputs{
+public class CoralInputs implements LoggableInputs{
     public double shooterSpeed = 0;
     public double angleSpeed = 0;
     public double tiltEncoderPosition = 0;

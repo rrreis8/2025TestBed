@@ -1,7 +1,7 @@
 package frc.robot.subsystem.Shooter;
 import frc.util.LoggableIO;
 
-public interface ShooterIO extends LoggableIO<ShooterInputs> {
+public interface CoralIO extends LoggableIO<CoralInputs> {
     void setShooterSpeed(double speed);
     void setTiltAngularVelocity(double angleSpeed);
     void stopShooterMotors();

@@ -5,11 +5,11 @@ import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import frc.robot.Constants;
 
-public class RealShooterIO implements ShooterIO{
+public class RealCoralIO implements CoralIO{
     private final WPI_TalonSRX shooterMotor1; //TODO: change later to whatever
     private final WPI_TalonSRX shooterMotor2; //TODO: change later to whatever
     private final WPI_TalonSRX shooterTiltMotor; //TODO: change later to whatever
-    public RealShooterIO() {
+    public RealCoralIO() {
         this.shooterMotor1 = new WPI_TalonSRX(Constants.SHOOTER_MOTOR_1_ID);
         this.shooterMotor2 = new WPI_TalonSRX(Constants.SHOOTER_MOTOR_2_ID);
         this.shooterTiltMotor = new WPI_TalonSRX(Constants.SHOOTER_TILT_MOTOR_ID);
@@ -46,7 +46,7 @@ public class RealShooterIO implements ShooterIO{
         this.shooterTiltMotor.setSelectedSensorPosition(0);
     }
     @Override
-    public void updateInputs(ShooterInputs inputs) {
+    public void updateInputs(CoralInputs inputs) {
         inputs.shooterSpeed = shooterMotor1.get();
         inputs.fwdTripped = shooterTiltMotor.getSensorCollection().isFwdLimitSwitchClosed();
         inputs.revTripped = shooterTiltMotor.getSensorCollection().isRevLimitSwitchClosed();

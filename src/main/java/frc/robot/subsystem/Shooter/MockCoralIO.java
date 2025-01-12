@@ -1,6 +1,6 @@
 package frc.robot.subsystem.Shooter;
 
-public class MockShooterIO implements ShooterIO {
+public class MockCoralIO implements CoralIO {
     @Override
     public void setShooterSpeed(double speed) {
         
@@ -26,7 +26,7 @@ public class MockShooterIO implements ShooterIO {
     }
 
     @Override
-    public void updateInputs(ShooterInputs inputs) {
+    public void updateInputs(CoralInputs inputs) {
         
     }
 }

@@ -9,11 +9,11 @@ import frc.robot.Constants;
 import frc.util.LoggableSystem;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
-public class ShooterSubsystem extends SubsystemBase {
-  private final LoggableSystem<ShooterIO, ShooterInputs> system;
+public class CoralSubsystem extends SubsystemBase {
+  private final LoggableSystem<CoralIO, CoralInputs> system;
   /** Creates a new Shooter. */
-  public ShooterSubsystem(ShooterIO io) {
-    system = new LoggableSystem<>(io, new ShooterInputs());
+  public CoralSubsystem(CoralIO io) {
+    system = new LoggableSystem<>(io, new CoralInputs());
   }
 
   @Override
