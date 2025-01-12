@@ -1,4 +1,4 @@
-package frc.util;
+package frc.robot.subsystems;
 
 import org.littletonrobotics.junction.inputs.LoggableInputs;
 
