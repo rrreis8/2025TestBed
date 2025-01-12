@@ -3,7 +3,7 @@ import com.ctre.phoenix.motorcontrol.LimitSwitchNormal;
 import com.ctre.phoenix.motorcontrol.LimitSwitchSource;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-import frc.robot.Constants;
+import frc.robot.constants.Constants;
 
 public class RealCoralIO implements CoralIO{
     private final WPI_TalonSRX shooterMotor1; //TODO: change later to whatever
