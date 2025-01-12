@@ -26,6 +26,7 @@ public class RealElevatorIO implements ElevatorIO{
     }
     @Override
     public void updateInputs(ElevatorInputs inputs) {
-        inputs.elevatorMotorPosition = elevatorMotor1.getEncoder().getPosition();
+        inputs.elevatorMotor1Position = elevatorMotor1.getEncoder().getPosition();
+        inputs.elevatorMotor2Position = elevatorMotor2.getEncoder().getPosition();
     }
 }
