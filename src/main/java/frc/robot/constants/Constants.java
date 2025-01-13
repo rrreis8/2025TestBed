@@ -1,4 +1,4 @@
-package frc.robot;
+package frc.robot.constants;
 
 import edu.wpi.first.wpilibj.RobotBase;
 
@@ -12,7 +12,6 @@ public class Constants extends Constants2025{
 
         /** Running a physics simulator. */
         SIM,
-
         /** Replaying from a log file. */
         REPLAY
     }
