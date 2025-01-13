@@ -17,18 +17,18 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.littletonrobotics.junction.AutoLogOutput;
 import org.littletonrobotics.junction.Logger;
 import frc.robot.constants.Constants;
-import org.usfirst.frc4048.common.ExampleAdvantageScopeRobot;
-import org.usfirst.frc4048.common.apriltags.ApriltagInputs;
-import org.usfirst.frc4048.common.loggingv2.CommandLogger;
+import frc.robot.ExampleAdvantageScopeRobot;
+import frc.robot.apriltags.ApriltagInputs;
+import frc.util.logging.CommandLogger;
 import frc.robot.swervev3.bags.OdometryMeasurement;
 import frc.robot.swervev3.bags.VisionMeasurement;
+import frc.robot.swervev3.io.SwerveModule;
 import frc.robot.swervev3.vision.BasicVisionFilter;
 import frc.util.Apriltag;
-import frc.util.LoggableIO;
-import frc.util.LoggableSystem;
 import frc.util.RobotMode;
+import frc.util.logging.LoggableIO;
+import frc.util.logging.LoggableSystem;
 import frc.util.math.ArrayUtils;
-import frc.robot.swervev3.io.SwerveModule;
 
 /**
  * Class in charge of feeding odometry and apriltag measurements from their respective IOs into a {@link PoseManager} which outputs a robot position

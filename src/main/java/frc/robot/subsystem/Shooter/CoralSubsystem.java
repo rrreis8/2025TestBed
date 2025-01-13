@@ -6,7 +6,8 @@ package frc.robot.subsystem.Shooter;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.constants.Constants;
-import frc.util.LoggableSystem;
+import frc.util.logging.LoggableSystem;
+
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 public class CoralSubsystem extends SubsystemBase {

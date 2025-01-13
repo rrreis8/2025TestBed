@@ -1,7 +1,7 @@
 package frc.robot.swervev3.io.steer;
 
 
-import org.usfirst.frc4048.common.util.LoggableIO;
+import frc.util.logging.LoggableIO;
 
 public interface SwerveSteerMotorIO extends LoggableIO<SwerveSteerMotorInput> {
     void setSteerVoltage(double volts);

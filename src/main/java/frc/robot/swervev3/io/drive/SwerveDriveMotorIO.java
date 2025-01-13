@@ -1,6 +1,6 @@
 package frc.robot.swervev3.io.drive;
 
-import org.usfirst.frc4048.common.util.LoggableIO;
+import frc.util.logging.LoggableIO;
 
 public interface SwerveDriveMotorIO extends LoggableIO<SwerveDriveMotorInput> {
     void setDriveVoltage(double volts);

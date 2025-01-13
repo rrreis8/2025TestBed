@@ -1,5 +1,5 @@
 package frc.robot.subsystem.Shooter;
-import frc.util.LoggableIO;
+import frc.util.logging.LoggableIO;
 
 public interface CoralIO extends LoggableIO<CoralInputs> {
     void setShooterSpeed(double speed);

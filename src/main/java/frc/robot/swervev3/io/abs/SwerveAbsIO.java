@@ -1,6 +1,6 @@
 package frc.robot.swervev3.io.abs;
 
-import org.usfirst.frc4048.common.util.LoggableIO;
+import frc.util.logging.LoggableIO;
 
 public interface SwerveAbsIO extends LoggableIO<SwerveAbsInput> {
 
