@@ -1,5 +1,6 @@
 package frc.robot.constants;
 import edu.wpi.first.math.util.Units;
+import frc.util.SwerveModuleProfile;
 
 public class Constants2025 extends GameConstants{
     public static final int ELEVATOR_MOTOR_1_ID = 0; //TODO: change later
@@ -15,5 +16,28 @@ public class Constants2025 extends GameConstants{
     public static final double DRIVE_RAMP_RATE_LIMIT = 0.1; //TODO: change later
     public static final double ROBOT_WIDTH = 0.8636; //TODO: change later
     public static final double ROBOT_LENGTH = 0.8636; //TODO: change later
-    public static final double MAX_VELOCITY = 4.8; // 4 meters per second TODO: change later
+    public static final double MAX_VELOCITY = 4.8; // 4 meters per second //TODO: change later
+    public static final double AUTO_ALIGN_THRESHOLD = 2.3; //degrees //TODO: change later
+    public static final double ALIGNABLE_PID_P = 0.01; //TODO: change later
+    public static final double ALIGNABLE_PID_I = 0.003; //TODO: change later
+    public static final double ALIGNABLE_PID_D = 0.0004; //TODO: change later
+    public static final double DRIVE_PID_P = 1; //TODO: change later
+    public static final double DRIVE_PID_I = 0; //TODO: change later
+    public static final double DRIVE_PID_D = 0; //TODO: change later
+    public static final double DRIVE_PID_FF_S = 1; //TODO: change later
+    public static final double DRIVE_PID_FF_V = 2.8; //TODO: change later
+    public static final double STEER_PID_P = 0.3; //TODO: change later
+    public static final double STEER_PID_I = 0; //TODO: change later
+    public static final double STEER_PID_D = 0.005; //TODO: change later
+    public static final double STEER_PID_FF_S = 0;//0.2; //TODO: change later
+    public static final double STEER_PID_FF_V = 0;//0.8; //TODO: change later
+    public static final int DRIVE_FRONT_RIGHT_S = 29; //TODO: change later
+    public static final int DRIVE_FRONT_RIGHT_D = 59; //TODO: change later
+    public static final int DRIVE_BACK_RIGHT_S = 30; //TODO: change later
+    public static final int DRIVE_BACK_RIGHT_D = 60; //TODO: change later
+    public static final int DRIVE_FRONT_LEFT_S = 28; //TODO: change later
+    public static final int DRIVE_FRONT_LEFT_D = 58; //TODO: change later
+    public static final int DRIVE_BACK_LEFT_S = 27; //TODO: change later
+    public static final int DRIVE_BACK_LEFT_D = 57; //TODO: change later
+    public static final SwerveModuleProfile SWERVE_MODULE_PROFILE = SwerveModuleProfile.MK4; //TODO: change later
 }

@@ -1,5 +1,8 @@
 package frc.robot.swervev3;
 
+import org.littletonrobotics.junction.Logger;
+
+import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.geometry.Translation2d;
@@ -8,18 +11,18 @@ import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
 import edu.wpi.first.math.kinematics.SwerveModulePosition;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.constants.Constants;
 import frc.robot.apriltags.ApriltagInputs;
+import frc.robot.constants.Constants;
 import frc.robot.gyro.GyroIO;
 import frc.robot.gyro.GyroInputs;
 import frc.robot.swervev3.bags.OdometryMeasurement;
 import frc.robot.swervev3.estimation.PoseEstimator;
 import frc.robot.swervev3.io.SwerveModule;
 import frc.util.DriveMode;
+import frc.util.SwerveModuleProfile;
+import frc.util.advanced.Alignable;
 import frc.util.logging.LoggableIO;
 import frc.util.logging.LoggableSystem;
-import org.littletonrobotics.junction.Logger;
-import frc.util.SwerveModuleProfile;
 
 public class SwerveDrivetrain extends SubsystemBase {
     public static final SwerveModuleProfile SWERVE_MODULE_PROFILE = SwerveModuleProfile.MK4;
@@ -35,6 +38,9 @@ public class SwerveDrivetrain extends SubsystemBase {
     private final LoggableSystem<GyroIO, GyroInputs> gyroSystem;
     private DriveMode driveMode = DriveMode.FIELD_CENTRIC;
     private final PoseEstimator poseEstimator;
+    private final PIDController alignableTurnPid = new PIDController(Constants.ALIGNABLE_PID_P, Constants.ALIGNABLE_PID_I, Constants.ALIGNABLE_PID_D);
+    private Alignable alignable = null;
+    private boolean facingTarget = false;
 
     public SwerveDrivetrain(SwerveModule frontLeftModule, SwerveModule frontRightModule, SwerveModule backLeftModule, SwerveModule backRightModule, GyroIO gyroIO, LoggableIO<ApriltagInputs> apriltagIO) {
         this.frontLeft = frontLeftModule;
@@ -42,6 +48,7 @@ public class SwerveDrivetrain extends SubsystemBase {
         this.backLeft = backLeftModule;
         this.backRight = backRightModule;
         this.gyroSystem = new LoggableSystem<>(gyroIO, new GyroInputs());
+        alignableTurnPid.enableContinuousInput(-180, 180);
         this.poseEstimator = new PoseEstimator(frontLeft, frontRight, backLeft, backRight, apriltagIO, kinematics, getLastGyro());
     }
 
@@ -160,5 +167,17 @@ public class SwerveDrivetrain extends SubsystemBase {
 
     public ChassisSpeeds getFieldChassisSpeeds() {
         return ChassisSpeeds.fromRobotRelativeSpeeds(getChassisSpeeds(), getPose().getRotation());
+    }
+    public Alignable getAlignable() {
+        return alignable;
+    }
+    public void setFacingTarget(boolean facingTarget) {
+        this.facingTarget = facingTarget;
+    }
+    public PIDController getAlignableTurnPid() {
+        return alignableTurnPid;
+    }
+    public boolean isFacingTarget() {
+        return facingTarget;
     }
 }

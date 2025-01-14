@@ -1,15 +1,13 @@
 package frc.robot.commands.drivetrain;
 
-public package frc.robot.commands.drivetrain;
-
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.math.kinematics.ChassisSpeeds;
 import frc.robot.RobotContainer;
 import frc.robot.constants.Constants;
-import frc.robot.subsystems.swervev3.SwerveDrivetrain;
-import frc.robot.utils.DriveMode;
-import frc.robot.utils.advanced.Alignable;
-import frc.robot.utils.advanced.AutoAlignment;
+import frc.robot.swervev3.SwerveDrivetrain;
+import frc.util.DriveMode;
+import frc.util.advanced.Alignable;
+import frc.util.advanced.AutoAlignment;
 import frc.util.logging.LoggableCommand;
 
 import java.util.function.DoubleSupplier;
@@ -61,6 +59,4 @@ public class Drive extends LoggableCommand {
     public boolean isFinished() {
         return false;
     }
-} {
-    
 }
