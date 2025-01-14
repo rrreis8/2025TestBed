@@ -2,7 +2,7 @@ package frc.util;
 
 import edu.wpi.first.math.geometry.Translation3d;
 import edu.wpi.first.math.util.Units;
-import org.jetbrains.annotations.Nullable;
+//import org.jetbrains.annotations.Nullable;
 
 
 /**
@@ -53,7 +53,7 @@ public enum Apriltag {
      * @param num
      * @return AprilTag
      */
-    @Nullable
+    //@Nullable
     public static Apriltag of(int num){
         if (num <= 0){
             return null;
