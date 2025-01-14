@@ -1,4 +1,4 @@
-package frc.robot.subsystem.coral;
+package frc.robot.subsystems.coral;
 import com.ctre.phoenix.motorcontrol.LimitSwitchNormal;
 import com.ctre.phoenix.motorcontrol.LimitSwitchSource;
 import com.ctre.phoenix.motorcontrol.NeutralMode;

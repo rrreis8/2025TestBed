@@ -1,4 +1,4 @@
-package frc.robot.subsystem.coral;
+package frc.robot.subsystems.coral;
 import frc.util.LoggableIO;
 
 public interface CoralIO extends LoggableIO<CoralInputs> {

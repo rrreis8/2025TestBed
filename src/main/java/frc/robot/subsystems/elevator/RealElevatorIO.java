@@ -1,4 +1,4 @@
-package frc.robot.subsystem.elevator;
+package frc.robot.subsystems.elevator;
 
 
 import com.revrobotics.spark.SparkBase;

@@ -1,4 +1,4 @@
-package frc.robot.subsystem.elevator;
+package frc.robot.subsystems.elevator;
 import org.littletonrobotics.junction.LogTable;
 import org.littletonrobotics.junction.inputs.LoggableInputs;
 

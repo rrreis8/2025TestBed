@@ -1,4 +1,4 @@
-package frc.robot.subsystem.coral;
+package frc.robot.subsystems.coral;
 
 public class MockCoralIO implements CoralIO {
     @Override

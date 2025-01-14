@@ -1,4 +1,4 @@
-package frc.robot.subsystem.elevator;
+package frc.robot.subsystems.elevator;
 
 public class MockElevatorIO implements ElevatorIO{
     @Override

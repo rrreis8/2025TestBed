@@ -1,7 +1,7 @@
-package frc.robot.autochoosers.event;
+package frc.robot.autochooser.event;
 
-import frc.robot.autochoosers.AutoAction;
-import frc.robot.autochoosers.FieldLocation;
+import frc.robot.autochooser.AutoAction;
+import frc.robot.autochooser.FieldLocation;
 import org.littletonrobotics.junction.LogTable;
 import org.littletonrobotics.junction.inputs.LoggableInputs;
 
