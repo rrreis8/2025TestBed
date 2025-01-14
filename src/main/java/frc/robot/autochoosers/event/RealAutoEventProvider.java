@@ -1,12 +1,12 @@
-package frc.robot.autochooser.event;
+package frc.robot.autochoosers.event;
 
 import edu.wpi.first.networktables.NetworkTableValue;
 import edu.wpi.first.wpilibj.shuffleboard.BuiltInWidgets;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import frc.robot.autochooser.AutoAction;
-import frc.robot.autochooser.FieldLocation;
+import frc.robot.autochoosers.AutoAction;
+import frc.robot.autochoosers.FieldLocation;
 import frc.util.shuffleboard.SmartShuffleboard;
 
 import java.util.ArrayList;

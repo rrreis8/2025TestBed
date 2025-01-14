@@ -1,4 +1,4 @@
-package frc.robot.autochooser;
+package frc.robot.autochoosers;
 
 import java.util.Arrays;
 import java.util.HashMap;

@@ -1,8 +1,8 @@
-package frc.robot.autochooser.event;
+package frc.robot.autochoosers.event;
 
 import frc.robot.Robot;
-import frc.robot.autochooser.AutoAction;
-import frc.robot.autochooser.FieldLocation;
+import frc.robot.autochoosers.AutoAction;
+import frc.robot.autochoosers.FieldLocation;
 import frc.util.LoggableSystem;
 
 import java.util.function.BiFunction;

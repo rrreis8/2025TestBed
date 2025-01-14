@@ -1,12 +1,12 @@
-package frc.robot.autochooser.event;
+package frc.robot.autochoosers.event;
 
-import frc.robot.autochooser.AutoAction;
-import frc.robot.autochooser.FieldLocation;
+import frc.robot.autochoosers.AutoAction;
+import frc.robot.autochoosers.FieldLocation;
 
 import java.util.Objects;
 
 /**
- * Wrapper Class, that Contains a {@link frc.robot.autochooser.AutoAction} and a {@link frc.robot.autochooser.FieldLocation}
+ * Wrapper Class, that Contains a {@link frc.robot.autochoosers.AutoAction} and a {@link frc.robot.autochoosers.FieldLocation}
  */
 public class AutoEvent {
      private final AutoAction action;

@@ -1,15 +1,13 @@
-package frc.robot.autochooser.chooser;
+package frc.robot.autochoosers.chooser;
 
-import com.pathplanner.lib.auto.AutoBuilder;
-import com.pathplanner.lib.path.PathPlannerPath;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.autochooser.AutoAction;
-import frc.robot.autochooser.FieldLocation;
-import frc.robot.autochooser.event.AutoEvent;
-import frc.robot.autochooser.event.AutoEventProvider;
-import frc.robot.autochooser.event.AutoEventProviderIO;
+import frc.robot.autochoosers.AutoAction;
+import frc.robot.autochoosers.FieldLocation;
+import frc.robot.autochoosers.event.AutoEvent;
+import frc.robot.autochoosers.event.AutoEventProvider;
+import frc.robot.autochoosers.event.AutoEventProviderIO;
 
 // import frc.robot.subsystems.swervev3.SwerveDrivetrain;
 // import frc.robot.utils.logging.DoNothingCommand;

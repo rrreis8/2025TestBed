@@ -1,4 +1,4 @@
-package frc.robot.autochooser;
+package frc.robot.autochoosers;
 
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
