@@ -7,10 +7,10 @@ import edu.wpi.first.util.WPISerializable;
 import edu.wpi.first.util.protobuf.Protobuf;
 import edu.wpi.first.util.struct.Struct;
 import edu.wpi.first.util.struct.StructSerializable;
-import edu.wpi.first.wpilibj.smartdashboard.Mechanism2d;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import org.littletonrobotics.junction.Logger;
 import frc.robot.constants.Constants;
+import org.littletonrobotics.junction.Logger;
+import org.littletonrobotics.junction.mechanism.LoggedMechanism2d;
 import us.hebi.quickbuf.ProtoMessage;
 
 import java.util.*;
@@ -44,7 +44,8 @@ public class CommandLogger {
         });
         hasInit = true;
     }
-    public void log(){
+
+    public void log() {
         logCommands();
         logQueuedMessages();
     }
@@ -52,10 +53,10 @@ public class CommandLogger {
     private void logQueuedMessages() {
         long startTime = Logger.getRealTimestamp();
         Runnable poll = logsToMainThread.poll();
-        while (poll != null){
+        while (poll != null) {
             poll.run();
             long now = Logger.getRealTimestamp();
-            if (now - startTime <= Constants.MAX_LOG_TIME_WAIT){
+            if (now - startTime <= Constants.MAX_LOG_TIME_WAIT) {
                 poll = logsToMainThread.poll();
             } else {
                 Logger.recordOutput("LOGGING_ERROR", "Logging took too long @" + now);
@@ -110,7 +111,7 @@ public class CommandLogger {
         logsToMainThread.add(() -> Logger.recordOutput(key, value));
     }
 
-    public <U extends Unit<U>> void logMessage(String key, Measure<U> value) {
+    public  <U extends Unit> void logMessage(String key, Measure<U> value) {
         logsToMainThread.add(() -> Logger.recordOutput(key, value));
     }
 
@@ -160,7 +161,20 @@ public class CommandLogger {
         logsToMainThread.add(() -> Logger.recordOutput(key, value));
     }
 
-    public void logMessage(String key, Mechanism2d value) {
+    public void logMessage(String key, LoggedMechanism2d value) {
+        logsToMainThread.add(() -> Logger.recordOutput(key, value));
+    }
+
+    public <R extends Record> void logMessage(String key, R value) {
+        logsToMainThread.add(() -> Logger.recordOutput(key, value));
+    }
+
+    @SuppressWarnings("unchecked")
+    public <R extends Record> void logMessage(String key, R... value) {
+        logsToMainThread.add(() -> Logger.recordOutput(key, value));
+    }
+
+    public <R extends Record> void logMessage(String key, R[][] value) {
         logsToMainThread.add(() -> Logger.recordOutput(key, value));
     }
 }
