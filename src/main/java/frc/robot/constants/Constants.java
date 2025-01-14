@@ -5,7 +5,6 @@ import edu.wpi.first.wpilibj.RobotBase;
 public class Constants extends Constants2025{
     public static final Mode simMode = Mode.REPLAY;
     public static final Mode currentMode = RobotBase.isReal() ? Mode.REAL : simMode;
-    public static final Mode ALGAE_ROLLER_CAN_ID = 0;
 
     public enum Mode {
         /** Running on a real robot. */

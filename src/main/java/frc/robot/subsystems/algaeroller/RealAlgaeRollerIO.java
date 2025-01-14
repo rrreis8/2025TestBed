@@ -7,11 +7,6 @@ public class RealAlgaeRollerIO implements AlgaeRollerIO {
 
     public RealAlgaeRollerIO() {
         this.algaeRoller = new CANSparkMax(Constants.ALGAE_ROLLER_CAN_ID);
-        configureMotor();
-    }
-
-    public void configureMotor(){
-        System.out.println("Wasup dawg");
     }
 
     @Override
