@@ -1,28 +1,8 @@
-package frc.robot.subsystems.algae;
+package frc.robot.subsystems.algaeroller;
 
-public class MockAlgaeIO implements AlgaeIO{
+public class MockAlgaeRollerIO implements AlgaeRollerIO{
     @Override
     public void setSpeed(double speed) {
-
-    }
-
-    @Override
-    public void intakeForward() {
-
-    }
-
-    @Override
-    public void intakeBackward() {
-
-    }
-
-    @Override
-    public void leftSpin() {
-
-    }
-
-    @Override
-    public void rightSpin() {
 
     }
 
@@ -32,7 +12,7 @@ public class MockAlgaeIO implements AlgaeIO{
     }
 
     @Override
-    public void updateInputs(FeederInputs inputs) {
+    public void updateInputs(AlgaeRollerInputs inputs) {
 
     }
 }
