@@ -1,4 +1,4 @@
-package frc.robot.subsystems.elevator;
+package frc.robot.subsystem.elevator;
 
 import frc.util.LoggableIO;
 

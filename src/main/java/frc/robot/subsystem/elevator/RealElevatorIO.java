@@ -1,13 +1,11 @@
-package frc.robot.subsystems.elevator;
+package frc.robot.subsystem.elevator;
 
 
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.revrobotics.spark.SparkBase;
 import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.SparkLowLevel;
 import com.revrobotics.spark.config.SparkBaseConfig;
 import com.revrobotics.spark.config.SparkMaxConfig;
-import edu.wpi.first.wpilibj.motorcontrol.Spark;
 import frc.robot.constants.Constants;
 
 public class RealElevatorIO implements ElevatorIO{
