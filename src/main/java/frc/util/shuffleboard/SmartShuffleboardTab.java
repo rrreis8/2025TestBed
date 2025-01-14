@@ -5,7 +5,7 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.util.SHUFFLEBOARD;
+package frc.util.shuffleboard;
 
 import edu.wpi.first.networktables.GenericEntry;
 import edu.wpi.first.networktables.NetworkTableValue;
