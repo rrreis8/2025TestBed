@@ -1,6 +1,6 @@
 package frc.robot.subsystems.elevator;
 
-import frc.util.logging.LoggableIO;
+import frc.robot.utils.logging.LoggableIO;
 
 public interface ElevatorIO extends LoggableIO <ElevatorInputs> {
     void setSpeed(double spd);

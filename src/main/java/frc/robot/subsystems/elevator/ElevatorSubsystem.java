@@ -1,7 +1,7 @@
 package frc.robot.subsystems.elevator;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.util.logging.LoggableSystem;
+import frc.robot.utils.logging.LoggableSystem;
 
 
 public class ElevatorSubsystem extends SubsystemBase{
