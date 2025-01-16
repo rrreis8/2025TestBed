@@ -14,11 +14,11 @@ import frc.robot.autochooser.event.AutoEventProviderIO;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AutoChooser2024 extends SubsystemBase implements AutoChooser {
+public class AutoChooser2025 extends SubsystemBase implements AutoChooser {
     private final Map<AutoEvent, Command> commandMap;
     private final AutoEventProvider provider;
 
-    public AutoChooser2024(AutoEventProviderIO providerIO) {
+    public AutoChooser2025(AutoEventProviderIO providerIO) {
         this.provider = new AutoEventProvider(providerIO, this::isValid);
         commandMap = new HashMap<>();
     }

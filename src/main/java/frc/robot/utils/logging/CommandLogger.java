@@ -51,11 +51,13 @@ public class CommandLogger {
     }
 
     private void logQueuedMessages() {
-        long startTime = Logger.getRealTimestamp();
+        //long startTime = Logger.getRealTimestamp();
+        long startTime = Logger.getTimestamp();
         Runnable poll = logsToMainThread.poll();
         while (poll != null) {
             poll.run();
-            long now = Logger.getRealTimestamp();
+            //long now = Logger.getRealTimestamp();
+            long now = Logger.getTimestamp();
             if (now - startTime <= Constants.MAX_LOG_TIME_WAIT) {
                 poll = logsToMainThread.poll();
             } else {

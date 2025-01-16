@@ -90,7 +90,8 @@ public class PoseEstimator {
      */
     public void updatePosition(OdometryMeasurement m) {
         if (DriverStation.isEnabled()) {
-            poseManager.addOdomMeasurement(m, Logger.getRealTimestamp());
+            //poseManager.addOdomMeasurement(m, Logger.getRealTimestamp());
+            poseManager.addOdomMeasurement(m, Logger.getTimestamp());
         }
         field.setRobotPose(poseManager.getEstimatedPosition());
     }
