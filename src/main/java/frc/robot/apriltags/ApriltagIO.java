@@ -1,6 +1,6 @@
 package frc.robot.apriltags;
 
-import frc.util.logging.LoggableIO;
+import frc.robot.utils.logging.LoggableIO;
 
 public interface ApriltagIO extends LoggableIO<ApriltagInputs> {
 }

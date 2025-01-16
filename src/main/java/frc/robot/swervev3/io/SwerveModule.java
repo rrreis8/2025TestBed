@@ -21,11 +21,11 @@ import frc.robot.swervev3.io.drive.SwerveDriveMotorInput;
 import frc.robot.swervev3.io.steer.SparkMaxSteerMotorIO;
 import frc.robot.swervev3.io.steer.SwerveSteerMotorIO;
 import frc.robot.swervev3.io.steer.SwerveSteerMotorInput;
-import frc.util.motor.Gain;
-import frc.util.ModulePosition;
-import frc.util.logging.LoggableSystem;
-import frc.util.motor.PID;
-import frc.util.math.AngleUtils;
+import frc.robot.utils.motor.Gain;
+import frc.robot.utils.ModulePosition;
+import frc.robot.utils.logging.LoggableSystem;
+import frc.robot.utils.motor.PID;
+import frc.robot.utils.math.AngleUtils;
 
 public class SwerveModule{
     private final LoggableSystem<SwerveDriveMotorIO, SwerveDriveMotorInput> driveSystem;

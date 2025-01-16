@@ -1,7 +1,7 @@
 package frc.robot.constants;
 import edu.wpi.first.math.util.Units;
-import frc.util.SwerveModuleProfile;
-import frc.util.SwerveModuleProfileV2;
+import frc.robot.utils.SwerveModuleProfile;
+import frc.robot.utils.SwerveModuleProfileV2;
 
 public class Constants2025 extends GameConstants{
     public static final int ELEVATOR_MOTOR_1_ID = 0; //TODO: change later

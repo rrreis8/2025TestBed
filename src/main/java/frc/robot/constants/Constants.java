@@ -2,7 +2,7 @@ package frc.robot.constants;
 
 import edu.wpi.first.wpilibj.RobotBase;
 
-import frc.util.SwerveModuleProfile;
+import frc.robot.utils.SwerveModuleProfile;
 
 public class Constants extends Constants2025{
     public static final Mode simMode = Mode.REPLAY;

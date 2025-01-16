@@ -1,8 +1,8 @@
 
 package frc.robot.swervev3;
 
-import frc.util.SwerveModuleProfile;
-import frc.util.SwerveModuleProfileV2;
+import frc.robot.utils.SwerveModuleProfile;
+import frc.robot.utils.SwerveModuleProfileV2;
 
 public class KinematicsConversionConfig {
      private final double wheelRadius;

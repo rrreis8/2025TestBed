@@ -5,10 +5,10 @@ import edu.wpi.first.math.kinematics.ChassisSpeeds;
 import frc.robot.RobotContainer;
 import frc.robot.constants.Constants;
 import frc.robot.swervev3.SwerveDrivetrain;
-import frc.util.DriveMode;
-import frc.util.advanced.Alignable;
-import frc.util.advanced.AutoAlignment;
-import frc.util.logging.LoggableCommand;
+import frc.robot.utils.DriveMode;
+import frc.robot.utils.advanced.Alignable;
+import frc.robot.utils.advanced.AutoAlignment;
+import frc.robot.utils.logging.LoggableCommand;
 
 import java.util.function.DoubleSupplier;
 import java.util.function.Supplier;

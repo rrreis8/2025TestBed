@@ -4,8 +4,8 @@
 
 package frc.robot;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import frc.util.logging.CommandLogger;
-import frc.util.RobotMode;
+import frc.robot.utils.logging.CommandLogger;
+import frc.robot.utils.RobotMode;
 import org.littletonrobotics.junction.LogFileUtil;
 import org.littletonrobotics.junction.LoggedRobot;
 import org.littletonrobotics.junction.Logger;

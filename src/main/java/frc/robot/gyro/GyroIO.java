@@ -1,7 +1,7 @@
 package frc.robot.gyro;
 
 
-import frc.util.logging.LoggableIO;
+import frc.robot.utils.logging.LoggableIO;
 
 public interface GyroIO extends LoggableIO<GyroInputs> {
     void setAngleOffset(double offset);

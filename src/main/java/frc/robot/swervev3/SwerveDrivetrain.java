@@ -18,11 +18,11 @@ import frc.robot.gyro.GyroInputs;
 import frc.robot.swervev3.bags.OdometryMeasurement;
 import frc.robot.swervev3.estimation.PoseEstimator;
 import frc.robot.swervev3.io.SwerveModule;
-import frc.util.DriveMode;
-import frc.util.SwerveModuleProfile;
-import frc.util.advanced.Alignable;
-import frc.util.logging.LoggableIO;
-import frc.util.logging.LoggableSystem;
+import frc.robot.utils.DriveMode;
+import frc.robot.utils.SwerveModuleProfile;
+import frc.robot.utils.advanced.Alignable;
+import frc.robot.utils.logging.LoggableIO;
+import frc.robot.utils.logging.LoggableSystem;
 
 public class SwerveDrivetrain extends SubsystemBase {
     public static final SwerveModuleProfile SWERVE_MODULE_PROFILE = SwerveModuleProfile.MK4;

@@ -1,7 +1,7 @@
 package frc.robot.apriltags;
 
 import edu.wpi.first.networktables.*;
-import frc.util.logging.LoggableIO;
+import frc.robot.utils.logging.LoggableIO;
 
 public class NtApriltag implements LoggableIO<ApriltagInputs> {
     private final DoubleArraySubscriber visionMeasurementSubscriber;

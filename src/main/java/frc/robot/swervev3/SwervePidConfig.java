@@ -1,8 +1,8 @@
 package frc.robot.swervev3;
 
 import edu.wpi.first.math.trajectory.TrapezoidProfile;
-import frc.util.motor.Gain;
-import frc.util.motor.PID;
+import frc.robot.utils.motor.Gain;
+import frc.robot.utils.motor.PID;
 
 public class SwervePidConfig {
      private final PID drivePid;
