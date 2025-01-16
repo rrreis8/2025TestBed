@@ -1,7 +1,5 @@
 package frc.robot.swervev3;
 
-import org.littletonrobotics.junction.Logger;
-
 import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
@@ -11,18 +9,19 @@ import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
 import edu.wpi.first.math.kinematics.SwerveModulePosition;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.apriltags.ApriltagInputs;
 import frc.robot.constants.Constants;
+import frc.robot.apriltags.ApriltagInputs;
 import frc.robot.gyro.GyroIO;
 import frc.robot.gyro.GyroInputs;
 import frc.robot.swervev3.bags.OdometryMeasurement;
 import frc.robot.swervev3.estimation.PoseEstimator;
 import frc.robot.swervev3.io.SwerveModule;
 import frc.robot.utils.DriveMode;
-import frc.robot.utils.SwerveModuleProfile;
-import frc.robot.utils.advanced.Alignable;
 import frc.robot.utils.logging.LoggableIO;
 import frc.robot.utils.logging.LoggableSystem;
+import org.littletonrobotics.junction.Logger;
+import frc.robot.utils.SwerveModuleProfile;
+import frc.robot.utils.advanced.Alignable;
 
 public class SwerveDrivetrain extends SubsystemBase {
     public static final SwerveModuleProfile SWERVE_MODULE_PROFILE = SwerveModuleProfile.MK4;
@@ -48,8 +47,8 @@ public class SwerveDrivetrain extends SubsystemBase {
         this.backLeft = backLeftModule;
         this.backRight = backRightModule;
         this.gyroSystem = new LoggableSystem<>(gyroIO, new GyroInputs());
-        alignableTurnPid.enableContinuousInput(-180, 180);
         this.poseEstimator = new PoseEstimator(frontLeft, frontRight, backLeft, backRight, apriltagIO, kinematics, getLastGyro());
+        alignableTurnPid.enableContinuousInput(-180, 180);
     }
 
     @Override
@@ -168,16 +167,19 @@ public class SwerveDrivetrain extends SubsystemBase {
     public ChassisSpeeds getFieldChassisSpeeds() {
         return ChassisSpeeds.fromRobotRelativeSpeeds(getChassisSpeeds(), getPose().getRotation());
     }
-    public Alignable getAlignable() {
+     public Alignable getAlignable() {
         return alignable;
-    }
-    public void setFacingTarget(boolean facingTarget) {
-        this.facingTarget = facingTarget;
     }
     public PIDController getAlignableTurnPid() {
         return alignableTurnPid;
     }
+    public void setFacingTarget(boolean facingTarget) {
+        this.facingTarget = facingTarget;
+    }
     public boolean isFacingTarget() {
         return facingTarget;
+    }
+    public void setAlignable(Alignable alignable) {
+        this.alignable = alignable;
     }
 }
