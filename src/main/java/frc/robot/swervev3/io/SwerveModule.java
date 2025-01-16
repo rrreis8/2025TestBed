@@ -8,7 +8,6 @@ import edu.wpi.first.math.kinematics.SwerveModulePosition;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
 import edu.wpi.first.math.trajectory.TrapezoidProfile;
 import org.littletonrobotics.junction.Logger;
-
 import frc.robot.swervev3.KinematicsConversionConfig;
 import frc.robot.swervev3.SwerveIdConfig;
 import frc.robot.swervev3.SwervePidConfig;

@@ -17,7 +17,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.littletonrobotics.junction.AutoLogOutput;
 import org.littletonrobotics.junction.Logger;
 import frc.robot.constants.Constants;
-import frc.robot.ExampleAdvantageScopeRobot;
+import frc.robot.Robot;
 import frc.robot.apriltags.ApriltagInputs;
 import frc.robot.utils.logging.CommandLogger;
 import frc.robot.swervev3.bags.OdometryMeasurement;
@@ -104,7 +104,7 @@ public class PoseEstimator {
      * If they are valid they are sent to the {@link PoseManager} for further processing
      */
     public void updateVision() {
-        if (ExampleAdvantageScopeRobot.getMode().equals(RobotMode.TELEOP) && Constants.ENABLE_VISION) {
+        if (Robot.getMode().equals(RobotMode.TELEOP) && Constants.ENABLE_VISION) {
             for (int i = 0; i < apriltagSystem.getInputs().timestamp.length; i++) {
                 double[] pos = new double[]{
                         apriltagSystem.getInputs().posX[i], apriltagSystem.getInputs().posY[i],

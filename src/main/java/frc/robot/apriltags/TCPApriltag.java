@@ -1,10 +1,11 @@
 package frc.robot.apriltags;
 
 import org.littletonrobotics.junction.Logger;
+import frc.robot.utils.logging.LoggableIO;
 
 import java.util.Queue;
 
-public class TCPApriltag implements ApriltagIO {
+public class TCPApriltag implements LoggableIO<ApriltagInputs> {
     private static final int PORT = 5806;
     private final TCPApriltagServer server;
 

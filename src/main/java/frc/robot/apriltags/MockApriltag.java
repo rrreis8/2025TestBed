@@ -1,6 +1,8 @@
 package frc.robot.apriltags;
 
-public class MockApriltag implements ApriltagIO {
+import frc.robot.utils.logging.LoggableIO;
+
+public class MockApriltag implements LoggableIO<ApriltagInputs> {
     @Override
     public void updateInputs(ApriltagInputs inputs) {
 

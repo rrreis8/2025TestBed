@@ -5,27 +5,22 @@ import com.pathplanner.lib.path.PathPlannerPath;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.autochooser.AutoAction;
-import frc.robot.autochooser.FieldLocation;
 import frc.robot.autochooser.event.AutoEvent;
 import frc.robot.autochooser.event.AutoEventProvider;
+import frc.robot.autochooser.AutoAction;
+import frc.robot.autochooser.FieldLocation;
 import frc.robot.autochooser.event.AutoEventProviderIO;
 
-// import frc.robot.subsystems.swervev3.SwerveDrivetrain;
-// import frc.robot.utils.logging.DoNothingCommand;
-// import frc.robot.utils.logging.LoggableCommandWrapper;
-// import frc.robot.utils.logging.LoggableSequentialCommandGroup;
-
+import java.util.HashMap;
 import java.util.Map;
 
 public class AutoChooser2024 extends SubsystemBase implements AutoChooser {
     private final Map<AutoEvent, Command> commandMap;
     private final AutoEventProvider provider;
 
-    public AutoChooser2024(AutoEventProviderIO providerIO/*, SwerveDrivetrain drivetrain, Intake intake, Shooter shooter, Feeder feeder, Deployer deployer, Ramp ramp, LightStrip lightStrip, Vision vision*/) {
+    public AutoChooser2024(AutoEventProviderIO providerIO) {
         this.provider = new AutoEventProvider(providerIO, this::isValid);
-        commandMap = Map.ofEntries(
-            );
+        commandMap = new HashMap<>();
     }
 
     @Override

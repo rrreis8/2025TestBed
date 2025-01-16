@@ -2,6 +2,8 @@ package frc.robot.utils.logging;
 
 import edu.wpi.first.wpilibj2.command.Command;
 
+import java.util.Objects;
+
 public class LoggableCommand extends Command implements Loggable {
     private String basicName = getClass().getSimpleName();
     private Command parent = new BlankCommand();
