@@ -26,9 +26,8 @@ import frc.util.ModulePosition;
 import frc.util.logging.LoggableSystem;
 import frc.util.motor.PID;
 import frc.util.math.AngleUtils;
-import frc.robot.swervev3.io.Module;
 
-public class SwerveModule implements Module{
+public class SwerveModule{
     private final LoggableSystem<SwerveDriveMotorIO, SwerveDriveMotorInput> driveSystem;
     private final LoggableSystem<SwerveSteerMotorIO, SwerveSteerMotorInput> steerSystem;
     private final LoggableSystem<SwerveAbsIO, SwerveAbsInput> absSystem;

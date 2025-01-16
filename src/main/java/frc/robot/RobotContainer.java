@@ -8,21 +8,39 @@ import java.util.Optional;
 
 import edu.wpi.first.math.trajectory.TrapezoidProfile;
 import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 import frc.robot.commands.drivetrain.Drive;
+import frc.robot.constants.Constants;
+import frc.robot.gyro.GyroIO;
+import frc.robot.gyro.MockGyroIO;
+import frc.robot.gyro.RealGyroIO;
 import frc.robot.swervev3.KinematicsConversionConfig;
 import frc.robot.swervev3.SwerveDrivetrain;
 import frc.robot.swervev3.SwerveIdConfig;
 import frc.robot.swervev3.SwervePidConfig;
+import frc.robot.swervev3.io.SwerveModule;
 import frc.util.motor.Gain;
 import frc.util.motor.PID;
-import frc.robot.swervev3.io.MockSwerveModule;
-import frc.robot.swervev3.io.SwerveModule;
-import frc.robot.constants.Constants;
+import frc.robot.apriltags.ApriltagIO;
+import frc.robot.apriltags.MockApriltag;
+import frc.robot.apriltags.TCPApriltag;
+import frc.util.logging.LoggableIO;
+import frc.util.ModulePosition;
+import frc.robot.gyro.ThreadedGyro;
+import frc.robot.apriltags.ApriltagInputs;
+import frc.robot.swervev3.io.drive.MockDriveMotorIO;
+import frc.robot.swervev3.io.steer.MockSteerMotorIO;
+import frc.robot.apriltags.NtApriltag;
+import frc.robot.swervev3.io.abs.MockAbsIO;
+import com.studica.frc.AHRS;
+import com.studica.frc.AHRS.NavXComType;
 
 public class RobotContainer {
   private SwerveDrivetrain drivetrain;
+  private final Joystick joyleft = new Joystick(Constants.LEFT_JOYSICK_ID);
+  private final Joystick joyright = new Joystick(Constants.RIGHT_JOYSTICK_ID);
   public RobotContainer() {
     setupDriveTrain();
     configureBindings();
@@ -40,7 +58,7 @@ public class RobotContainer {
   private void configureBindings() {
     drivetrain.setDefaultCommand(new Drive(drivetrain, joyleft::getY, joyleft::getX, joyright::getX, drivetrain::getDriveMode));
   }
-   private void setupDriveTrain() {
+  private void setupDriveTrain() {
         SwerveIdConfig frontLeftIdConf = new SwerveIdConfig(Constants.DRIVE_FRONT_LEFT_D, Constants.DRIVE_FRONT_LEFT_S, Constants.DRIVE_CANCODER_FRONT_LEFT);
         SwerveIdConfig frontRightIdConf = new SwerveIdConfig(Constants.DRIVE_FRONT_RIGHT_D, Constants.DRIVE_FRONT_RIGHT_S, Constants.DRIVE_CANCODER_FRONT_RIGHT);
         SwerveIdConfig backLeftIdConf = new SwerveIdConfig(Constants.DRIVE_BACK_LEFT_D, Constants.DRIVE_BACK_LEFT_S, Constants.DRIVE_CANCODER_BACK_LEFT);
@@ -52,23 +70,34 @@ public class RobotContainer {
         Gain driveGain = Gain.of(Constants.DRIVE_PID_FF_V, Constants.DRIVE_PID_FF_S);
         Gain steerGain = Gain.of(Constants.STEER_PID_FF_V, Constants.STEER_PID_FF_S);
 
-        KinematicsConversionConfig kinematicsConversionConfig = new KinematicsConversionConfig(Constants.WHEEL_RADIUS, Constants.SWERVE_MODULE_PROFILE.getDriveRatio(), Constants.SWERVE_MODULE_PROFILE.getSteerRatio());
+        KinematicsConversionConfig kConfig = new KinematicsConversionConfig(Constants.WHEEL_RADIUS, Constants.SWERVE_MODULE_PROFILE);
         SwervePidConfig pidConfig = new SwervePidConfig(drivePid, steerPid, driveGain, steerGain, constraints);
+        
         SwerveModule frontLeft;
         SwerveModule frontRight;
         SwerveModule backLeft;
         SwerveModule backRight;
-        if (Robot.isReal()){
-            frontLeft = new SwerveModule(frontLeftIdConf,kinematicsConversionConfig, Constants.SWERVE_MODULE_PROFILE.isFrontLeftInverted(), Constants.SWERVE_MODULE_PROFILE.isSteerInverted());
-            frontRight = new SwerveModule(frontRightIdConf,kinematicsConversionConfig, Constants.SWERVE_MODULE_PROFILE.isFrontRightInverted(), Constants.SWERVE_MODULE_PROFILE.isSteerInverted());
-            backLeft = new SwerveModule(backLeftIdConf,kinematicsConversionConfig, Constants.SWERVE_MODULE_PROFILE.isBackLeftInverted(), Constants.SWERVE_MODULE_PROFILE.isSteerInverted());
-            backRight = new SwerveModule(backRightIdConf,kinematicsConversionConfig, Constants.SWERVE_MODULE_PROFILE.isBackRightInverted(), Constants.SWERVE_MODULE_PROFILE.isSteerInverted());
-        }else{
-            frontLeft = new MockSwerveModule();
-            frontRight = new MockSwerveModule();
-            backLeft = new MockSwerveModule();
-            backRight = new MockSwerveModule();
+        
+        GyroIO gyroIO;
+        LoggableIO<ApriltagInputs> apriltagIO;
+        if (Robot.isReal()) {
+          frontLeft = SwerveModule.createModule(frontLeftIdConf, kConfig, pidConfig, ModulePosition.FRONT_LEFT);
+          frontRight = SwerveModule.createModule(frontRightIdConf, kConfig, pidConfig, ModulePosition.FRONT_RIGHT);
+          backLeft = SwerveModule.createModule(backLeftIdConf, kConfig, pidConfig, ModulePosition.BACK_LEFT);
+          backRight = SwerveModule.createModule(backRightIdConf, kConfig, pidConfig, ModulePosition.BACK_RIGHT);
+        
+          ThreadedGyro threadedGyro = new ThreadedGyro(new AHRS(NavXComType.kMXP_SPI)); //TODO: change com type later
+          threadedGyro.start();
+          gyroIO = new RealGyroIO(threadedGyro);
+          apriltagIO = new NtApriltag();
+        } else {
+          frontLeft = new SwerveModule(new MockDriveMotorIO(), new MockSteerMotorIO(), new MockAbsIO(), pidConfig, "frontLeft");
+          frontRight = new SwerveModule(new MockDriveMotorIO(), new MockSteerMotorIO(), new MockAbsIO(), pidConfig, "frontRight");
+          backLeft = new SwerveModule(new MockDriveMotorIO(), new MockSteerMotorIO(), new MockAbsIO(), pidConfig, "backLeft");
+          backRight = new SwerveModule(new MockDriveMotorIO(), new MockSteerMotorIO(), new MockAbsIO(), pidConfig, "backRight");
+          gyroIO = new MockGyroIO();
+          apriltagIO = new MockApriltag();
         }
-        this.drivetrain = new SwerveDrivetrain(frontLeft, frontRight, backLeft, backRight, gyroIO, apriltagIO, pidConfig);
+        SwerveDrivetrain drivetrain = new SwerveDrivetrain(frontLeft, frontRight, backLeft, backRight, gyroIO, apriltagIO);
     }
-}
+} 
