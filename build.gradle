@@ -172,7 +172,7 @@ spotless {
         toggleOffOn()
         googleJavaFormat()
         removeUnusedImports()
-        indentWithTabs()
+        indentWithSpaces(4)
         trimTrailingWhitespace()
     }
     groovyGradle {
