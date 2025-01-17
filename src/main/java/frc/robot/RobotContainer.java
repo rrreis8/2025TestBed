@@ -98,6 +98,6 @@ public class RobotContainer {
           gyroIO = new MockGyroIO();
           apriltagIO = new MockApriltag();
         }
-        SwerveDrivetrain drivetrain = new SwerveDrivetrain(frontLeft, frontRight, backLeft, backRight, gyroIO, apriltagIO);
+        drivetrain = new SwerveDrivetrain(frontLeft, frontRight, backLeft, backRight, gyroIO, apriltagIO);
     }
 } 
