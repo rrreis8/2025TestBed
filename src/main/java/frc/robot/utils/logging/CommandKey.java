@@ -3,22 +3,22 @@ package frc.robot.utils.logging;
 import java.util.Objects;
 
 public class CommandKey {
-    private final String key;
+  private final String key;
 
-    public CommandKey(String key) {
-        this.key = key;
-    }
+  public CommandKey(String key) {
+    this.key = key;
+  }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        CommandKey that = (CommandKey) o;
-        return Objects.equals(key, that.key);
-    }
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    CommandKey that = (CommandKey) o;
+    return Objects.equals(key, that.key);
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(key);
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hashCode(key);
+  }
 }
