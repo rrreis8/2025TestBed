@@ -7,11 +7,16 @@ package frc.robot;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
+import frc.robot.commands.SetDriveMotor;
+import frc.robot.subsystems.Swerve;
+import frc.robot.utils.shuffleboard.SmartShuffleboard;
 import java.util.Optional;
 
 public class RobotContainer {
   public RobotContainer() {
     configureBindings();
+    Swerve swerve = new Swerve();
+    SmartShuffleboard.putCommand("Drive", "Set Speed", new SetDriveMotor(swerve, 0.2));
   }
 
   private void configureBindings() {}
