@@ -31,7 +31,7 @@ public class Robot extends LoggedRobot {
     public void robotInit() {
         alert.set(true);
         if (Constants.ENABLE_LOGGING) {
-            Logger.recordMetadata("ProjectName", "FRC2024_Java"); // Set a metadata value
+            Logger.recordMetadata("ProjectName", "FRC2025_Java"); // Set a metadata value
             Logger.recordMetadata("GitSHA", BuildConstants.GIT_SHA);
             if (isReal()) {
                 Logger.addDataReceiver(new WPILOGWriter()); // Log to a USB stick ("/U/logs")
