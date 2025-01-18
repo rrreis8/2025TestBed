@@ -12,12 +12,16 @@ import org.littletonrobotics.junction.Logger;
 import org.littletonrobotics.junction.wpilog.WPILOGReader;
 import org.littletonrobotics.junction.wpilog.WPILOGWriter;
 import frc.robot.constants.Constants;
+import edu.wpi.first.wpilibj.Alert;
+import edu.wpi.first.wpilibj.Alert.AlertType;
 
 import java.util.concurrent.atomic.AtomicReference;
 
 public class Robot extends LoggedRobot {
 
     private static final AtomicReference<RobotMode> mode = new AtomicReference<>(RobotMode.DISABLED);
+    private final Alert alert = new Alert("Init", AlertType.kError);
+    private RobotContainer robotContainer;
 
     public static RobotMode getMode(){
         return mode.get();
@@ -25,6 +29,7 @@ public class Robot extends LoggedRobot {
 
     @Override
     public void robotInit() {
+        alert.set(true);
         if (Constants.ENABLE_LOGGING) {
             Logger.recordMetadata("ProjectName", "FRC2024_Java"); // Set a metadata value
             Logger.recordMetadata("GitSHA", BuildConstants.GIT_SHA);
@@ -40,6 +45,7 @@ public class Robot extends LoggedRobot {
             // Log active commands
             CommandLogger.get().init();
         }
+        robotContainer = new RobotContainer();
     }
 
     @Override

@@ -9,6 +9,7 @@ import java.util.Optional;
 import edu.wpi.first.math.trajectory.TrapezoidProfile;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.Alert.AlertType;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 import frc.robot.commands.drivetrain.Drive;
@@ -36,12 +37,15 @@ import frc.robot.apriltags.NtApriltag;
 import frc.robot.swervev3.io.abs.MockAbsIO;
 import com.studica.frc.AHRS;
 import com.studica.frc.AHRS.NavXComType;
+import edu.wpi.first.wpilibj.Alert;
 
 public class RobotContainer {
   private SwerveDrivetrain drivetrain;
   private final Joystick joyleft = new Joystick(Constants.LEFT_JOYSICK_ID);
   private final Joystick joyright = new Joystick(Constants.RIGHT_JOYSTICK_ID);
+  private final Alert alert = new Alert("RobotContainer", AlertType.kError);
   public RobotContainer() {
+    alert.set(true);
     setupDriveTrain();
     configureBindings();
   }

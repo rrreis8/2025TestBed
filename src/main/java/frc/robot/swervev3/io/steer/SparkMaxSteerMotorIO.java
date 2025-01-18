@@ -14,9 +14,9 @@ public class SparkMaxSteerMotorIO implements SwerveSteerMotorIO{
 
     public SparkMaxSteerMotorIO(int steerMotorId, KinematicsConversionConfig conversionConfig, boolean steerInverted) {
         steerMotor = new SparkMax(steerMotorId, SparkMax.MotorType.kBrushless);
+        steerConfig = new SparkMaxConfig();
         setMotorConfig(steerInverted);
         setConversionFactors(conversionConfig);
-        steerConfig = new SparkMaxConfig();
         resetEncoder();
     }
 
