@@ -2,12 +2,10 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-package frc.robot.subsystem.Shooter;
+package frc.robot.subsystems.coral;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.constants.Constants;
-import frc.util.LoggableSystem;
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import frc.robot.utils.LoggableSystem;
 
 public class CoralSubsystem extends SubsystemBase {
   private final LoggableSystem<CoralIO, CoralInputs> system;
