@@ -1,4 +1,4 @@
-package frc.robot.subsystems.gyro;
+/*package frc.robot.subsystems.gyro;
 
 import com.studica.frc.AHRS;
 import edu.wpi.first.wpilibj.DriverStation;
@@ -77,4 +77,4 @@ public class ThreadedGyro {
   public double getAngleOffset() {
     return Double.longBitsToDouble(gyroOffset.get());
   }
-}
+}*/

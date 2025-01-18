@@ -1,4 +1,4 @@
-package frc.robot.subsystems.gyro;
+/*package frc.robot.subsystems.gyro;
 
 public class RealGyroIO implements GyroIO {
   private final ThreadedGyro gyro;
@@ -22,4 +22,4 @@ public class RealGyroIO implements GyroIO {
     inputs.anglesInDeg = gyro.getGyroValue();
     inputs.angleOffset = gyro.getAngleOffset();
   }
-}
+}*/

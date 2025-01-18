@@ -4,8 +4,6 @@
 
 package frc.robot;
 
-import com.studica.frc.AHRS;
-import com.studica.frc.AHRS.NavXComType;
 import edu.wpi.first.math.trajectory.TrapezoidProfile;
 import edu.wpi.first.wpilibj.Alert;
 import edu.wpi.first.wpilibj.Alert.AlertType;
@@ -18,10 +16,10 @@ import frc.robot.apriltags.MockApriltag;
 import frc.robot.apriltags.NtApriltag;
 import frc.robot.commands.drivetrain.Drive;
 import frc.robot.constants.Constants;
-import frc.robot.subsystems.gyro.GyroIO;
-import frc.robot.subsystems.gyro.MockGyroIO;
-import frc.robot.subsystems.gyro.RealGyroIO;
-import frc.robot.subsystems.gyro.ThreadedGyro;
+// import frc.robot.subsystems.gyro.GyroIO;
+// import frc.robot.subsystems.gyro.MockGyroIO;
+// import frc.robot.subsystems.gyro.RealGyroIO;
+// import frc.robot.subsystems.gyro.ThreadedGyro;
 import frc.robot.subsystems.swervev3.KinematicsConversionConfig;
 import frc.robot.subsystems.swervev3.SwerveDrivetrain;
 import frc.robot.subsystems.swervev3.SwerveIdConfig;
@@ -40,7 +38,7 @@ public class RobotContainer {
   private SwerveDrivetrain drivetrain;
   private final Joystick joyleft = new Joystick(Constants.LEFT_JOYSICK_ID);
   private final Joystick joyright = new Joystick(Constants.RIGHT_JOYSTICK_ID);
-  private final Alert alert = new Alert("RobotContainer", AlertType.kError);
+  private final Alert alert = new Alert("RobotContainer", AlertType.kInfo);
 
   public RobotContainer() {
     alert.set(true);
@@ -102,7 +100,7 @@ public class RobotContainer {
     SwerveModule backLeft;
     SwerveModule backRight;
 
-    GyroIO gyroIO;
+    // GyroIO gyroIO;
     LoggableIO<ApriltagInputs> apriltagIO;
     if (Robot.isReal()) {
       frontLeft =
@@ -115,10 +113,10 @@ public class RobotContainer {
       backRight =
           SwerveModule.createModule(backRightIdConf, kConfig, pidConfig, ModulePosition.BACK_RIGHT);
 
-      ThreadedGyro threadedGyro =
-          new ThreadedGyro(new AHRS(NavXComType.kMXP_SPI)); // TODO: change com type later
-      threadedGyro.start();
-      gyroIO = new RealGyroIO(threadedGyro);
+      //   ThreadedGyro threadedGyro =
+      //       new ThreadedGyro(new AHRS(NavXComType.kMXP_SPI)); // TODO: change com type later
+      //   threadedGyro.start();
+      //   gyroIO = new RealGyroIO(threadedGyro);
       apriltagIO = new NtApriltag();
     } else {
       frontLeft =
@@ -149,10 +147,14 @@ public class RobotContainer {
               new MockAbsIO(),
               pidConfig,
               "backRight");
-      gyroIO = new MockGyroIO();
+      //   gyroIO = new MockGyroIO();
       apriltagIO = new MockApriltag();
     }
     drivetrain =
-        new SwerveDrivetrain(frontLeft, frontRight, backLeft, backRight, gyroIO, apriltagIO);
+        new SwerveDrivetrain(frontLeft, frontRight, backLeft, backRight, /*  gyroIO,*/ apriltagIO);
+  }
+
+  public SwerveDrivetrain getDrivetrain() {
+    return drivetrain;
   }
 }

@@ -20,8 +20,9 @@ import org.littletonrobotics.junction.wpilog.WPILOGWriter;
 public class Robot extends LoggedRobot {
 
   private static final AtomicReference<RobotMode> mode = new AtomicReference<>(RobotMode.DISABLED);
-  private final Alert alert = new Alert("Init", AlertType.kError);
+  private final Alert alert = new Alert("Init", AlertType.kInfo);
   private RobotContainer robotContainer;
+  public double counter = 0;
 
   public static RobotMode getMode() {
     return mode.get();
@@ -59,6 +60,10 @@ public class Robot extends LoggedRobot {
     CommandScheduler.getInstance().run();
     if (Constants.ENABLE_LOGGING) {
       CommandLogger.get().log();
+    }
+    counter++;
+    if (counter == 1) {
+      // new WheelAlign(robotContainer.getDrivetrain()).schedule();
     }
   }
 

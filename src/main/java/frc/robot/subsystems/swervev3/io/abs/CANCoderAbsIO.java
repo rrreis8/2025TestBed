@@ -1,20 +1,20 @@
 package frc.robot.subsystems.swervev3.io.abs;
 
 // import com.ctre.phoenix.sensors.WPI_CANCoder;
-import com.ctre.phoenix6.hardware.CANcoder;
+import com.ctre.phoenix.sensors.WPI_CANCoder;
 
 public class CANCoderAbsIO implements SwerveAbsIO {
   // private final WPI_CANCoder absEncoder;
-  private final CANcoder absEncoder;
+  private final WPI_CANCoder absEncoder;
 
   public CANCoderAbsIO(int canCoderID) {
     // absEncoder = new WPI_CANCoder(canCoderID);
-    absEncoder = new CANcoder(canCoderID);
+    absEncoder = new WPI_CANCoder(canCoderID);
   }
 
   @Override
   public void updateInputs(SwerveAbsInput input) {
     // input.absEncoderPosition = absEncoder.getAbsolutePosition();
-    input.absEncoderPosition = absEncoder.getPosition().getValueAsDouble();
+    input.absEncoderPosition = absEncoder.getPosition();
   }
 }

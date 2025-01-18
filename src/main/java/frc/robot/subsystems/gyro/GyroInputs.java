@@ -1,4 +1,4 @@
-package frc.robot.subsystems.gyro;
+/*package frc.robot.subsystems.gyro;
 
 import org.littletonrobotics.junction.LogTable;
 import org.littletonrobotics.junction.inputs.LoggableInputs;
@@ -18,4 +18,4 @@ public class GyroInputs implements LoggableInputs {
     anglesInDeg = table.get("anglesInDeg", anglesInDeg);
     angleOffset = table.get("angleOffset", angleOffset);
   }
-}
+}*/
